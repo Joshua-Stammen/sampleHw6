@@ -81,3 +81,8 @@ int SuperArray::getHighIndex() const
 {
 	return highIndex;
 }
+
+unsigned int SuperArray::length() const
+{
+	return static_cast<unsigned int>(capacity);
+}
