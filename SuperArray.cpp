@@ -69,6 +69,7 @@ int &SuperArray::operator[](const int index)
 	//
 	// Define your logic here
 	//
+	realIndex -= lowIndex;
 	return arr[realIndex];
 }
 
