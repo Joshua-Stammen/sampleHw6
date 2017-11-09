@@ -60,6 +60,7 @@
  *      the variable name for you (actually it works with any expression, 
  *      not just variables).
  * } */
+/*
 TEST_CASE("Testing SuperArray class Regular indexes")
 {
     INFO("Testing SuperArray class Regular indexes");
@@ -92,7 +93,7 @@ TEST_CASE("Testing SuperArray class Regular indexes")
 	    INFO("Test #4) Test length FAILED");
 		REQUIRE(sa.length() == 5);
 	}
-	/*
+
 	SECTION("Test #5) Test valid index member")
 	{
 	    INFO("Test #5) Test valid index member FAILED");
@@ -108,11 +109,12 @@ TEST_CASE("Testing SuperArray class Regular indexes")
 	{
 	    INFO("Test #7) Test valid index member (too high) FAILED");
 		REQUIRE_THROWS_WITH(sa[9], "Invalid index request, too high");
-	}*/
+	}
 }
-
+*/
 TEST_CASE("Testing SuperArray class with super range")
 {
+
     INFO("Testing SuperArray class with super range");
     int low = 5;
     int high = 15;
@@ -144,18 +146,21 @@ TEST_CASE("Testing SuperArray class with super range")
         INFO("Test #11) Test length FAILED");
         REQUIRE(sa.length() == 10);
     }
-	/*
+
+
     SECTION("Test #12) Test valid index member")
     {
         INFO("Test #12) Test valid index member FAILED");
         REQUIRE(sa[8] == 108);
     }
+
     // This test requires to test an exception
     SECTION("Test #13) Test invalid index members (too low)")
     {
         INFO("Test #13 Test valid index member (too low) FAILED");
         REQUIRE_THROWS_WITH(sa[2], "Invalid index request, too low");
     }
+    /*
     SECTION("Test #14) Test invalid index members (too high)")
     {
         INFO("Test #14 Test valid index member (too high) FAILED");
@@ -163,6 +168,7 @@ TEST_CASE("Testing SuperArray class with super range")
     }
 	*/
 }
+
 /*
 TEST_CASE("Testing SuperArray class Resize Feature")
  {

@@ -69,7 +69,20 @@ int &SuperArray::operator[](const int index)
 	//
 	// Define your logic here
 	//
-	realIndex -= lowIndex;
+        realIndex -= lowIndex;
+
+    if (realIndex < lowIndex)
+    {
+        throw "Invalid index request, too low";
+    }
+/*
+    if (realIndex > highIndex)
+    {
+        throw "Invalid index request, too high";
+    }
+*/
+
+
 	return arr[realIndex];
 }
 
