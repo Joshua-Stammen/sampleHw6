@@ -188,6 +188,7 @@ TEST_CASE("Testing SuperArray class Resize Feature")
     low = 3;
     high = 15;
     sa.resize(low, high);
+
 	SECTION("Test #15) Test low index")
 	{
 	    INFO("Test #15) Test low index FAILED");
@@ -199,7 +200,7 @@ TEST_CASE("Testing SuperArray class Resize Feature")
 	    INFO("Test #16) Test high index FAILED");
 		REQUIRE(sa.getHighIndex() == 17);
 	}
-/*
+
 	SECTION("Test #17) Test length")
 	{
 	    INFO("Test #17) Test length FAILED");
@@ -232,7 +233,7 @@ TEST_CASE("Testing SuperArray class Resize Feature")
 	    INFO("Test #21 Test valid index member (too high) FAILED");
 		REQUIRE_THROWS_WITH(sa[19], "Invalid index request, too high");
 	}
-	 */
+
 }
 /*
 TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
