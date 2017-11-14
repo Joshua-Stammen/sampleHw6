@@ -331,7 +331,7 @@ TEST_CASE("Testing SuperArray Offseting array")
 	    INFO("Test #34) Test valid index member (too high) FAILED");
 		REQUIRE_THROWS_WITH(sa[0], "Invalid index request, too high");
 	}
-}
+} */
 TEST_CASE("Testing SuperArray 1 element")
 {
     INFO("Testing SuperArray 1 element");
@@ -359,7 +359,7 @@ TEST_CASE("Testing SuperArray 1 element")
     { 
         INFO("Test #37) Test length FAILED");
         REQUIRE(sa.length() == 1);
-    }
+    }/*
     // This test requires to test an exception 
     SECTION("Test #38) Test invalid index members (too low)")
     {
@@ -370,5 +370,5 @@ TEST_CASE("Testing SuperArray 1 element")
     {
         INFO("Test #39) Test valid index member (too high) FAILED");
         REQUIRE_THROWS_WITH(sa[4], "Invalid index request, too high");
-    }
-} */
+    } */
+}

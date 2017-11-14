@@ -118,6 +118,11 @@ unsigned int SuperArray::length() const
 	return static_cast<unsigned int>(capacity);
 }
 
+/*!
+ * Method for resize length of Index
+ * @param begIndex
+ * @param capacity
+ */
 void SuperArray::resize(const int begIndex, const unsigned int capacity)
 {
     int *temp = new int[capacity];
