@@ -192,17 +192,19 @@ TEST_CASE("Testing SuperArray class Resize Feature")
 	    INFO("Test #15) Test low index FAILED");
 		REQUIRE(sa.getLowIndex() == low);
 	}
-	 /*
+
 	SECTION("Test #16) Test high index")
 	{
 	    INFO("Test #16) Test high index FAILED");
 		REQUIRE(sa.getHighIndex() == high - 1);
 	}
+     /*
 	SECTION("Test #17) Test length")
 	{
 	    INFO("Test #17) Test length FAILED");
 		REQUIRE(sa.length() == 15);
 	}
+
 	SECTION("Test #18) Test valid index member")
 	{
 	    INFO("Test #18) Test valid index member FAILED");
