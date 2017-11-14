@@ -113,7 +113,7 @@ int SuperArray::getHighIndex() const
  */
 unsigned int SuperArray::length() const
 {
-    int *temp = new int[capacity];
+    //int *temp = new int[capacity];
     unsigned int length = static_cast<unsigned int>(capacity);
 
 	return length;
