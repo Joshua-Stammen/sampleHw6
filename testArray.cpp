@@ -63,7 +63,7 @@
 
 TEST_CASE("Testing SuperArray class Regular indexes")
 {
-    /*
+
     INFO("Testing SuperArray class Regular indexes");
 	int low = 0;
 	int high = 5;
@@ -113,9 +113,10 @@ TEST_CASE("Testing SuperArray class Regular indexes")
 	    INFO("Test #7) Test valid index member (too high) FAILED");
 		REQUIRE_THROWS_WITH(sa[9], "Invalid index request, too high");
 	}
-*/
+
 }
-/*
+
+
 TEST_CASE("Testing SuperArray class with super range")
 {
 
@@ -157,26 +158,27 @@ TEST_CASE("Testing SuperArray class with super range")
         INFO("Test #12) Test valid index member FAILED");
         REQUIRE(sa[8] == 108);
     }
-/*
+
     // This test requires to test an exception
     SECTION("Test #13) Test invalid index members (too low)")
     {
         INFO("Test #13 Test valid index member (too low) FAILED");
         REQUIRE_THROWS_WITH(sa[2], "Invalid index request, too low");
     }
-    /*
+
     SECTION("Test #14) Test invalid index members (too high)")
     {
         INFO("Test #14 Test valid index member (too high) FAILED");
         REQUIRE_THROWS_WITH(sa[19], "Invalid index request, too high");
     }
-	*/
-//}
+
+}
 
 
-/*
+
 TEST_CASE("Testing SuperArray class Resize Feature")
  {
+
     INFO("Testing SuperArray class with super range");
     int low = 5;
     int high = 15;
@@ -189,7 +191,7 @@ TEST_CASE("Testing SuperArray class Resize Feature")
     low = 3;
     high = 15;
     sa.resize(low, high);
-
+/*
 	SECTION("Test #15) Test low index")
 	{
 	    INFO("Test #15) Test low index FAILED");
@@ -214,6 +216,7 @@ TEST_CASE("Testing SuperArray class Resize Feature")
         REQUIRE(sa[5] == 105);
         REQUIRE(sa[14] == 114);
 	}
+
     // Update values and test them
     sa[3] = 1;
     sa[14] = 2;
@@ -223,12 +226,14 @@ TEST_CASE("Testing SuperArray class Resize Feature")
         REQUIRE(sa[3] == 1);
         REQUIRE(sa[14] == 2);
 	}
+
     // This test requires to test an exception
 	SECTION("Test #20) Test invalid index members (too low)")
 	{
 	    INFO("Test #20 Test valid index member (too low) FAILED");
 		REQUIRE_THROWS_WITH(sa[2], "Invalid index request, too low");
 	}
+ */
 	SECTION("Test #21) Test invalid index members (too high)")
  	{
 	    INFO("Test #21 Test valid index member (too high) FAILED");
@@ -236,7 +241,7 @@ TEST_CASE("Testing SuperArray class Resize Feature")
 	}
 
 }
-*/
+
 TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
 {
     INFO("Testing SuperArray class Resize Feature Negative Index");
