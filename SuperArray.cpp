@@ -70,7 +70,8 @@ int &SuperArray::operator[](const int index)
 	// Define your logic here
 	//
         realIndex -= lowIndex;
-/*
+
+    /*
     if (realIndex < lowIndex)
     {
         throw "Invalid index request, too low";
@@ -80,7 +81,7 @@ int &SuperArray::operator[](const int index)
     {
         throw "Invalid index request, too high";
     }
-*/
+    */
 
 
 	return arr[realIndex];
@@ -112,6 +113,8 @@ int SuperArray::getHighIndex() const
  */
 unsigned int SuperArray::length() const
 {
+    int *temp = new int[capacity];
+
 	return static_cast<unsigned int>(capacity);
 }
 
