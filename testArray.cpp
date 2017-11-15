@@ -60,72 +60,63 @@
  *      the variable name for you (actually it works with any expression, 
  *      not just variables).
  * } */
-
+/*
 TEST_CASE("Testing SuperArray class Regular indexes")
 {
-
     INFO("Testing SuperArray class Regular indexes");
-	int low = 0;
-	int high = 5;
-	SuperArray sa(low,high);
-	for (int i = low; i < high - low; i++)
-	{
-		sa[i] = i + 20;
-	}
-	SECTION("Test #1) Test Constructor")
+    int low = 0;
+    int capacity = 5;
+    int high = low + capacity -1;
+    SuperArray sa(low,capacity);
+    for (int i = low; i <= high; i++)
+    {
+        sa[i] = i + 20;
+    }
+    SECTION("Test #1) Test Constructor")
     {
         INFO("Test #1) Test Constructor FAILED");
         REQUIRE(arrayToString(sa) == "20 21 22 23 24");
     }
-
-	SECTION("Test #2) Test low index")
-	{
-	    INFO("Test #2) Test low index FAILED");
-		REQUIRE(sa.getLowIndex() == low);
-	}
-	SECTION("Test #3) Test high index")
-	{
-	    INFO("Test #3) Test high index FAILED");
-		REQUIRE(sa.getHighIndex() == high - 1);
-	}
-
-	SECTION("Test #4) Test length")
-	{
-	    INFO("Test #4) Test length FAILED");
-		REQUIRE(sa.length() == 5);
-	}
-
-	SECTION("Test #5) Test valid index member")
-	{
-	    INFO("Test #5) Test valid index member FAILED");
-		REQUIRE(sa[0] == 20);
-	}
+    SECTION("Test #2) Test low index")
+    {
+        INFO("Test #2) Test low index FAILED");
+        REQUIRE(sa.getLowIndex() == low);
+    }
+    SECTION("Test #3) Test high index")
+    {
+        INFO("Test #3) Test high index FAILED");
+        REQUIRE(sa.getHighIndex() == high);
+    }
+    SECTION("Test #4) Test length")
+    {
+        INFO("Test #4) Test length FAILED");
+        REQUIRE(sa.length() == capacity);
+    }
+    SECTION("Test #5) Test valid index member")
+    {
+        INFO("Test #5) Test valid index member FAILED");
+        REQUIRE(sa[0] == 20);
+    }
     // This test requires to test an exception
-
-	SECTION("Test #6) Test invalid index members (too low)")
-	{
-	    INFO("Test #6) Test valid index member (too low) FAILED");
-		REQUIRE_THROWS_WITH(sa[-2], "Invalid index request, too low");
-	}
-
-	SECTION("Test #7) Test invalid index members (too high)")
-	{
-	    INFO("Test #7) Test valid index member (too high) FAILED");
-		REQUIRE_THROWS_WITH(sa[9], "Invalid index request, too high");
-	}
-
+    SECTION("Test #6) Test invalid index members (too low)")
+    {
+        INFO("Test #6) Test valid index member (too low) FAILED");
+        REQUIRE_THROWS_WITH(sa[-2], "Invalid index request, too low");
+    }
+    SECTION("Test #7) Test invalid index members (too high)")
+    {
+        INFO("Test #7) Test valid index member (too high) FAILED");
+        REQUIRE_THROWS_WITH(sa[9], "Invalid index request, too high");
+    }
 }
-
-
 TEST_CASE("Testing SuperArray class with super range")
 {
-
     INFO("Testing SuperArray class with super range");
     int low = 5;
-    int high = 15;
-
-    SuperArray sa(low, 10);
-    for (int i = low; i < high; i++)
+    int capacity = 10;
+    int high = low + capacity -1;
+    SuperArray sa(low, capacity);
+    for (int i = low; i <= high; i++)
     {
         sa[i] = i + 100;
     }
@@ -134,45 +125,39 @@ TEST_CASE("Testing SuperArray class with super range")
         INFO("Test #8) Test Constructor FAILED");
         REQUIRE(arrayToString(sa) == "105 106 107 108 109 110 111 112 113 114");
     }
-
     SECTION("Test #9) Test low index")
     {
         INFO("Test #9) Test low index FAILED");
         REQUIRE(sa.getLowIndex() == low);
     }
-
     SECTION("Test #10) Test high index")
     {
         INFO("Test #10) Test high index FAILED");
-        REQUIRE(sa.getHighIndex() == high - 1);
+        REQUIRE(sa.getHighIndex() == high);
     }
     SECTION("Test #11) Test length")
     {
         INFO("Test #11) Test length FAILED");
-        REQUIRE(sa.length() == 10);
+        REQUIRE(sa.length() == capacity);
     }
-
-
     SECTION("Test #12) Test valid index member")
     {
         INFO("Test #12) Test valid index member FAILED");
         REQUIRE(sa[8] == 108);
     }
-
     // This test requires to test an exception
     SECTION("Test #13) Test invalid index members (too low)")
     {
         INFO("Test #13 Test valid index member (too low) FAILED");
         REQUIRE_THROWS_WITH(sa[2], "Invalid index request, too low");
     }
-
     SECTION("Test #14) Test invalid index members (too high)")
     {
         INFO("Test #14 Test valid index member (too high) FAILED");
         REQUIRE_THROWS_WITH(sa[19], "Invalid index request, too high");
     }
-
 }
+
 TEST_CASE("Testing SuperArray class Resize Feature")
 {
     INFO("Testing SuperArray class with super range");
@@ -189,6 +174,7 @@ TEST_CASE("Testing SuperArray class Resize Feature")
     capacity = 15;
     high = low + capacity -1;
     sa.resize(low, capacity);
+
     SECTION("Test #15) Test low index")
     {
         INFO("Test #15) Test low index FAILED");
@@ -230,7 +216,10 @@ TEST_CASE("Testing SuperArray class Resize Feature")
         INFO("Test #21 Test valid index member (too high) FAILED");
         REQUIRE_THROWS_WITH(sa[19], "Invalid index request, too high");
     }
-} /*
+
+}
+ */
+
 TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
 {
     INFO("Testing SuperArray class Resize Feature Negative Index");
@@ -253,12 +242,12 @@ TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
         INFO("Test #22) Test low index FAILED");
         REQUIRE(sa.getLowIndex() == low);
     }
+
     SECTION("Test #23) Test high index")
     {
         INFO("Test #23) Test high index FAILED");
         REQUIRE(sa.getHighIndex() == high );
     }
-
     SECTION("Test #24) Test length")
     {
         INFO("Test #24) Test length FAILED");
@@ -292,79 +281,83 @@ TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
         INFO("Test #28 Test valid index member (too high) FAILED");
         REQUIRE_THROWS_WITH(sa[25], "Invalid index request, too high");
     }
-} */
 
+}
+
+/*
 TEST_CASE("Testing SuperArray Offseting array")
 {
     INFO("Testing SuperArray Offseting array");
-	int low = -20;
-	int high = 4;
-	SuperArray sa(low, high);
-	for (int i = low; i < -16; i++)
-	{
-		sa[i] = i - 10;
-	}
-	SECTION("Test #29) Test Constructor")
+    int low = -20;
+    int capacity = 4;
+    int high = low + capacity -1;
+    SuperArray sa(low, capacity);
+    for (int i = low; i <= high; i++)
+    {
+        sa[i] = i - 10;
+    }
+    SECTION("Test #29) Test Constructor")
     {
         INFO("Test #29) Test Constructor FAILED");
         REQUIRE(arrayToString(sa) == "-30 -29 -28 -27");
     }
-	SECTION("Test #30) Test low index")
-	{
-	    INFO("Test #30) Test low index FAILED");
-		REQUIRE(sa.getLowIndex() == low);
-	}
-	SECTION("Test #31) Test high index")
-	{
-	    INFO("Test #31) Test high index FAILED");
-		REQUIRE(sa.getHighIndex() == -17);
-	}
-	SECTION("Test #32) Test length")
-	{
-	    INFO("Test #32) Test length FAILED");
-		REQUIRE(sa.length() == 4);
-	}
+    SECTION("Test #30) Test low index")
+    {
+        INFO("Test #30) Test low index FAILED");
+        REQUIRE(sa.getLowIndex() == low);
+    }
+    SECTION("Test #31) Test high index")
+    {
+        INFO("Test #31) Test high index FAILED");
+        REQUIRE(sa.getHighIndex() == high);
+    }
+    SECTION("Test #32) Test length")
+    {
+        INFO("Test #32) Test length FAILED");
+        REQUIRE(sa.length() == capacity);
+    }
     // This test requires to test an exception
-	SECTION("Test #33) Test invalid index members (too low)")
-	{
-	    INFO("Test #33) Test valid index member (too low) FAILED");
-		REQUIRE_THROWS_WITH(sa[-29], "Invalid index request, too low");
-	}
-	SECTION("Test #34) Test invalid index members (too high)")
- 	{
-	    INFO("Test #34) Test valid index member (too high) FAILED");
-		REQUIRE_THROWS_WITH(sa[0], "Invalid index request, too high");
-	}
+    SECTION("Test #33) Test invalid index members (too low)")
+    {
+        INFO("Test #33) Test valid index member (too low) FAILED");
+        REQUIRE_THROWS_WITH(sa[-29], "Invalid index request, too low");
+    }
+    SECTION("Test #34) Test invalid index members (too high)")
+    {
+        INFO("Test #34) Test valid index member (too high) FAILED");
+        REQUIRE_THROWS_WITH(sa[0], "Invalid index request, too high");
+    }
 }
+
 TEST_CASE("Testing SuperArray 1 element")
 {
     INFO("Testing SuperArray 1 element");
     int low = 3;
-    int high = 1;
-    SuperArray sa(low, high);
-    sa[3] = 1111;;
+    int capacity = 1;
+    int high = low + capacity -1;
+    SuperArray sa(low, capacity);
+    sa[3] = 1111;
 
     SECTION("Test #35) Test Constructor")
-    { 
+    {
         INFO("Test #35) Test Constructor FAILED");
         REQUIRE(arrayToString(sa) == "1111");
     }
     SECTION("Test #36) Test low index")
-    { 
+    {
         INFO("Test #36) Test low index FAILED");
         REQUIRE(sa.getLowIndex() == low);
     }
     SECTION("Test #36) Test high index")
-    { 
+    {
         INFO("Test #36) Test high index FAILED");
-        REQUIRE(sa.getHighIndex() == low);
+        REQUIRE(sa.getHighIndex() == high);
     }
     SECTION("Test #37) Test length")
-    { 
+    {
         INFO("Test #37) Test length FAILED");
-        REQUIRE(sa.length() == 1);
+        REQUIRE(sa.length() == capacity);
     }
-
     // This test requires to test an exception 
     SECTION("Test #38) Test invalid index members (too low)")
     {
@@ -377,3 +370,4 @@ TEST_CASE("Testing SuperArray 1 element")
         REQUIRE_THROWS_WITH(sa[4], "Invalid index request, too high");
     }
 }
+*/

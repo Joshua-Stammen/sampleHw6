@@ -65,21 +65,35 @@ string arrayToString(const SuperArray& obj)
  */
 int &SuperArray::operator[](const int index)
 {
-	int realIndex = index;
-	//
-	// Define your logic here
-	//
-        realIndex -= lowIndex;
-
-
-    if (realIndex < 0)
+	int realIndex;
+//	//
+//	// Define your logic here
+//	//
+//        realIndex -= lowIndex;
+//
+//
+//    if (realIndex < 0)
+//    {
+//        throw "Invalid index request, too low";
+//    }
+//
+//    if (realIndex > capacity -1)
+//    {
+//        throw "Invalid index request, too high";
+//    }
+    //cout << index << " " << lowIndex << " " << highIndex << " " << capacity <<  endl;
+    if (index < lowIndex)
     {
         throw "Invalid index request, too low";
     }
-
-    if (realIndex > capacity -1)
+    else if (index > highIndex)
     {
         throw "Invalid index request, too high";
+    }
+    else
+    {
+        realIndex = index - lowIndex;
+
     }
 
 
