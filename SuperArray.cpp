@@ -65,37 +65,37 @@ string arrayToString(const SuperArray& obj)
  */
 int &SuperArray::operator[](const int index)
 {
-	int realIndex;
-//	//
-//	// Define your logic here
-//	//
-//        realIndex -= lowIndex;
-//
-//
-//    if (realIndex < 0)
-//    {
-//        throw "Invalid index request, too low";
-//    }
-//
-//    if (realIndex > capacity -1)
-//    {
-//        throw "Invalid index request, too high";
-//    }
-    //cout << index << " " << lowIndex << " " << highIndex << " " << capacity <<  endl;
-    if (index < lowIndex)
+	int realIndex = index;
+	//
+	// Define your logic here
+	//
+        realIndex -= lowIndex;
+
+
+    if (realIndex < 0)
     {
         throw "Invalid index request, too low";
     }
-    else if (index > highIndex)
+
+    if (realIndex > capacity -1)
     {
         throw "Invalid index request, too high";
     }
-    else
-    {
-        realIndex = index - lowIndex;
-
-    }
-
+//    cout << index << " " << lowIndex << " " << highIndex << " " << capacity <<  endl;
+//    if (index < lowIndex)
+//    {
+//        throw "Invalid index request, too low";
+//    }
+//    else if (index > highIndex)
+//    {
+//        throw "Invalid index request, too high";
+//    }
+//    else
+//    {
+//        realIndex = index - lowIndex;
+//
+//    }
+//
 
 
 	return arr[realIndex];
@@ -141,22 +141,28 @@ unsigned int SuperArray::length() const
 void SuperArray::resize(const int begIndex, const unsigned int capacity)
 {
     int *temp = new int[capacity];
+    int diff = lowIndex - begIndex;
+    cout << diff << endl;
 
-    for (int i = 0; i < lowIndex - begIndex; i++)
+    for (int i = 0; i < diff; i++)
     {
         *(temp + i) = 0;
+        cout << *(temp + i) << endl;
     }
-    for (int i = lowIndex - begIndex; i < capacity; i++)
+    for (int i = diff; i < capacity; i++)
     {
         *(temp + i) = *arr;
         arr++;
+        cout << *(temp + i) << endl;
     }
-
-    delete []arr;
+    cout << "New Array Created" << endl;
+    delete[] arr;   // ERROR: Not deleting after negative index resizing
+    cout << "Old Memory Deleted" << endl;
     arr = temp;
 
     SuperArray::capacity = capacity;
     lowIndex = begIndex;
-    highIndex = begIndex + capacity - 1;
+    highIndex = (begIndex + capacity - 1);
+    cout << "Resize complete!" << endl;
 
 }
