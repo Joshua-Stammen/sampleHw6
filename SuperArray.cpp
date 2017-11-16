@@ -149,14 +149,37 @@ void SuperArray::resize(const int begIndex, const unsigned int capacity)
         *(temp + i) = 0;
         cout << *(temp + i) << endl;
     }
-    for (int i = diff; i < capacity; i++)
+    if (capacity > SuperArray::capacity + diff)
     {
-        *(temp + i) = *arr;
-        arr++;
-        cout << *(temp + i) << endl;
+        for (int i = diff; i < SuperArray::capacity + diff; i++)
+        {
+            *(temp + i) = *arr;
+            arr++;
+            cout << *(temp + i) << endl;
+        }
+        for (int i = SuperArray::capacity + diff; i < capacity; i++)
+        {
+            *(temp + i) = 0;
+            cout << *(temp + i) << endl;
+        }
     }
+    else
+    {
+        for (int i = diff; i < capacity; i++)
+        {
+            *(temp + i) = *arr;
+            arr++;
+            cout << *(temp + i) << endl;
+        }
+    }
+
+//    for (int i = SuperArray::capacity; i < capacity; i++)
+//    {
+//        *(temp + i) = 0;
+//        cout << *(temp + i) << endl;
+//    }
     cout << "New Array Created" << endl;
-    delete[] arr;   // ERROR: Not deleting after negative index resizing
+    //delete[] arr;   // ERROR: Not deleting after negative index resizing
     cout << "Old Memory Deleted" << endl;
     arr = temp;
 
