@@ -245,7 +245,8 @@ TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
     high = low + capacity -1;
 
     sa.resize(low, capacity);
-    /*
+
+
     SECTION("Test #22) Test low index")
     {
         INFO("Test #22) Test low index FAILED");
@@ -291,7 +292,7 @@ TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
         INFO("Test #28 Test valid index member (too high) FAILED");
         REQUIRE_THROWS_WITH(sa[25], "Invalid index request, too high");
     }
-*/
+
 
 }
 
