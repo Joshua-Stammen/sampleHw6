@@ -105,7 +105,6 @@ int &SuperArray::operator[](const int index)
  * Method for returning lowIndex of array
  * @return : Low Index
  */
-
 int SuperArray::getLowIndex() const
 {
 	return lowIndex;
@@ -115,7 +114,6 @@ int SuperArray::getLowIndex() const
  * Method for returning highIndex of array
  * @return : High Index
  */
-
 int SuperArray::getHighIndex() const
 {
 	return highIndex;
@@ -135,8 +133,8 @@ unsigned int SuperArray::length() const
 
 /*!
  * Method for resize length of Index
- * @param begIndex
- * @param capacity
+ * @param begIndex: new starting point for array
+ * @param capacity: new capacity for array
  */
 void SuperArray::resize(const int begIndex, const unsigned int capacity)
 {
@@ -180,7 +178,7 @@ void SuperArray::resize(const int begIndex, const unsigned int capacity)
 //        cout << *(temp + i) << endl;
 //    }
     cout << "New Array Created" << endl;
-    delete[] arr;   // ERROR: Not deleting after negative index resizing
+    delete[] arr;
     cout << "Old Memory Deleted" << endl;
     arr = temp;
 
